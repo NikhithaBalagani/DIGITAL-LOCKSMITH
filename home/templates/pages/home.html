@@ -1,0 +1,37 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+
+
+<section id="hero" class="hero d-flex align-items-center">
+    <div class="container py-5 h-100 container-custom">
+        <div class="row d-flex align-items-center justify-content-center h-100">
+
+            <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+                    <h2> <FONT COLOR=white>WELCOME TO YOUR PASSWORD MANAGER</h2>
+                    <h2><FONT COLOR=white>Manage your all passwords from one place. Secure, fast and useful.</h2>
+                    <div class="d-md-flex gap-2">
+                        <div class="text-center text-lg-start">
+                            <a href="{% url 'add-password' %}"
+                               class="btn-get-started d-inline-flex align-items-center justify-content-center align-self-center">
+                                <span>Add new password</span>
+                                <i class="fa fa-plus"></i>
+                            </a>
+                        </div>
+                        <div class="text-center text-lg-start">
+                            <a href="{% url 'manage-passwords' %}"
+                               class="btn-get-started d-inline-flex align-items-center justify-content-center align-self-center">
+                                <span>View all</span>
+                                <i class="fas fa-eye"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

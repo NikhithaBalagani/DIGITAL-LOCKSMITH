@@ -1,0 +1,70 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    .container-custom {
+        max-width: 1800px; /* Set max width for the container */
+    }
+    .image-container {
+        text-align: center;
+    }
+    .login-container {
+        background-color: transparent;
+        padding: 3rem;
+        border-radius: 2rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .btn-primary {
+        background-color: #4F8A8B;
+        border: none;
+    }
+    .btn-success {
+        background-color: #F2D492;
+        border: none;
+    }
+    .divider {
+        border-top: 0.5px solid #eaeaea;
+    }
+    .white-text {
+    color: #ffffff; /* Sets the text color to white */
+    font-family: 'Roboto', sans-serif; /* Sets the font, replace with your desired font */
+}
+
+</style>
+
+<section id="hero" class="hero d-flex align-items-center">
+    <div class="container py-5 h-100 container-custom">
+        <div class="row d-flex align-items-center justify-content-center h-100">
+
+            <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+                <div class="login-container">
+                    <h4 class="mb-3 text-center white-text">PUT YOUR PASSWORDS IN THEIR PLACE</h4>
+                    <h4 class="mb-4 text-center white-text">We'll take care of them for you</h4>
+                    <form method="POST" class="px-md-2">
+                        {% csrf_token %}
+                        {% if form.non_field_errors %}
+                            {% for error in form.non_field_errors %}
+                                <div class="alert alert-danger" role="alert">
+                                    {{ error }}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                        <div class="form-floating mb-4">
+                            {{ form.username }}
+                            <label for="username">Username</label>
+                        </div>
+                        <div class="form-floating mb-4">
+                            {{ form.password }}
+                            <label for="password">Password</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg w-100">Sign In</button>
+                        <div class="divider my-4"></div>
+                        <a href="{% url 'register-page' %}" class="btn btn-success btn-lg w-100" role="button">Sign Up</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
